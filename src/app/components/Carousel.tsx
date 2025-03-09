@@ -10,6 +10,7 @@ import {
   User,
   SquareChartGantt,
 } from "lucide-react";
+import Image from "next/image";
 
 interface Card {
   src: string;
@@ -127,7 +128,9 @@ const Carousel = () => {
     <div id="showcase" className="showcase-container">
       <h1 className="showcase-title">Showcase</h1>
       <div className="carousel-container">
-        <img
+        <Image
+          width={50}
+          height={50}
           src="/chevronleft.png"
           className="nav-button nav-left"
           onClick={() => rotateCarousel(-1)}
@@ -173,7 +176,8 @@ const Carousel = () => {
                       </span>
                     </h3>
                     <div className="card">
-                      <img
+                      <Image
+                        fill={true}
                         src={card.src}
                         className="card-image"
                         alt={card.title}
@@ -182,7 +186,9 @@ const Carousel = () => {
                     {isActive && (
                       <div className="card-overlay">
                         <div className="card-overlay-inside">
-                          <img
+                          <Image
+                            width={500}
+                            height={500}
                             className="card-img"
                             src={card.img}
                             alt={card.title}
@@ -197,7 +203,9 @@ const Carousel = () => {
           </div>
         </div>
 
-        <img
+        <Image
+          width={500}
+          height={500}
           src="/chevronright.png"
           className="nav-button nav-right"
           onClick={() => rotateCarousel(1)}
