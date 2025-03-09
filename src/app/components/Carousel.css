@@ -26,7 +26,7 @@
   transition: transform 0.2s ease-out; /* Slightly slower for smoother parallax */
   will-change: transform; /* Performance optimization */
   transform: translateY(-30px); /* Adjusted initial position */
-  padding-bottom: 80px;
+  padding-bottom: 170px;
 }
 
 .carousel-container {

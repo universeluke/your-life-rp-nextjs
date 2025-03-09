@@ -23,8 +23,10 @@ const Footer: React.FC = () => {
         </div>
         <div className="footer-footer">
           <p className="footer-powered">
-            Powered by FiveM and React | Not affiliated with Rockstar Games
+            Powered by FiveM, React, and coffee | Not affiliated with Rockstar
+            Games
           </p>
+          <p className="footer-credits">Credits: Luke Davies 2025</p>
         </div>
       </div>
     </footer>

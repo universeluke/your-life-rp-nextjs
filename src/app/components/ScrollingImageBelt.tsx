@@ -33,7 +33,7 @@ const ScrollingImageBelt: React.FC = () => {
     },
     {
       id: 4,
-      src: "/LS_LOGO.png",
+      src: "/ls_logo_background.png",
       alt: "Custom image 4",
     },
     {
@@ -53,7 +53,7 @@ const ScrollingImageBelt: React.FC = () => {
     },
     {
       id: 4,
-      src: "/LS_LOGO.png",
+      src: "/ls_logo_background.png",
       alt: "Custom image 4",
     },
     {
@@ -73,7 +73,7 @@ const ScrollingImageBelt: React.FC = () => {
     },
     {
       id: 4,
-      src: "/LS_LOGO.png",
+      src: "/ls_logo_background.png",
       alt: "Custom image 4",
     },
   ];
