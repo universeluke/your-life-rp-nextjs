@@ -1,0 +1,45 @@
+.text-belt-container {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to right, #000000, rgb(15, 23, 50), #000000);
+  padding-bottom: 0;
+  border: 10px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
+  transform: translateZ(100px);
+}
+
+.text-belt-wrapper {
+  position: relative;
+  height: 2.5rem; /* Reduced from 12rem to 8rem */
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.text-belt {
+  position: absolute;
+  display: flex;
+  left: 0;
+  gap: 1.5rem; /* Space between images */
+  will-change: transform; /* Optimize animation performance */
+  padding: 0;
+}
+
+.text-item {
+  flex-shrink: 0;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  padding: 0;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: rgb(15, 21, 43);
+  box-shadow: 0 0px 12px rgba(0, 0, 0, 0.5);
+}
+
+.belt-text {
+  width: auto; /* Let width adjust based on aspect ratio */
+  object-fit: cover; /* This will crop the image to maintain aspect ratio */
+  display: block;
+  padding: 0;
+}

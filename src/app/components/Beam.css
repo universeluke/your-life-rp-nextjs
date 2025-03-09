@@ -1,0 +1,99 @@
+.synthwave-beam-container {
+  position: relative;
+  height: 4px; /* Increased from 1px to 4px */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  background: transparent;
+}
+
+.synthwave-beam-line {
+  height: 2px; /* Increased from 1px to 4px */
+  width: 100%;
+  background-color: #ec4899; /* Pink-500 */
+  position: relative;
+}
+
+.beam-glow {
+  position: absolute;
+  inset: 0;
+  height: 3px; /* Increased from 1px to 4px */
+  width: 100%;
+}
+
+.inner-glow-1 {
+  background-color: #ec4899; /* Pink-500 */
+  filter: blur(10px);
+}
+
+.inner-glow-2 {
+  background-color: #c084fc; /* Purple-400 */
+  filter: blur(4px);
+}
+
+.outer-glow-1 {
+  background-color: #d946ef; /* Fuchsia-500 */
+  filter: blur(8px);
+  opacity: 0.7;
+}
+
+.outer-glow-2 {
+  background-color: #818cf8; /* Indigo-400 */
+  filter: blur(12px);
+  opacity: 0.5;
+}
+
+.pulsing-glow {
+  background-color: #22d3ee; /* Cyan-400 */
+  filter: blur(12px);
+  opacity: 0.3;
+  animation: pulse 2s infinite alternate;
+}
+
+.beam-flare {
+  position: absolute;
+  width: 2px; /* Increased from 1px to 2px */
+  background-color: #ec4899; /* Pink-400 */
+  filter: blur(2px);
+  opacity: 0.8;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.flare-1 {
+  left: 25%;
+  height: 16px;
+  background-color: #f472b6; /* Pink-400 */
+  opacity: 0.8;
+}
+
+.flare-2 {
+  left: 66%;
+  height: 12px;
+  background-color: #c084fc; /* Purple-400 */
+  opacity: 0.7;
+}
+
+.flare-3 {
+  left: 50%;
+  height: 24px;
+  background-color: #e879f9; /* Fuchsia-400 */
+  opacity: 0.6;
+}
+
+.flare-4 {
+  left: 75%;
+  height: 8px;
+  background-color: #818cf8; /* Indigo-400 */
+  opacity: 0.5;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}

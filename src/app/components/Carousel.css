@@ -1,0 +1,339 @@
+/* Carousel.css */
+.showcase-container {
+  width: 100%;
+  min-height: 60vh;
+  background: linear-gradient(to right, #240024, rgb(14, 11, 41), #240024);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  padding-top: 80px;
+  padding-bottom: 180px;
+}
+
+.showcase-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+.carousel-container {
+  width: 100%;
+  height: auto;
+  min-height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
+.carousel-stage {
+  max-width: 960px;
+  width: 100%;
+  height: auto;
+  min-height: 480px;
+  position: relative;
+  perspective: 3600px;
+  transform: translateY(-200px);
+}
+
+.carousel-stage::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(40px);
+  transform: scale(1.5);
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
+
+.carousel-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(-360px);
+}
+
+.carousel-card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 50%;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform, opacity;
+}
+
+.card-container {
+  position: relative;
+  width: 100%;
+  max-width: 307px;
+  height: auto;
+  aspect-ratio: 307/384;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+}
+
+.card {
+  width: 100%;
+  height: 122.5%;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease;
+  object-fit: fill;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  right: 0;
+  bottom: 0;
+}
+
+.carousel-card.active.hovered .card {
+  transform: perspective(1000px) rotateX(24deg) translateY(-10px);
+  transition: transform 0.2s ease;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  -webkit-mask-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(rgba(0, 0, 0, 1)),
+    to(rgba(0, 0, 0, 0))
+  );
+}
+
+.card-overlay {
+  position: absolute;
+  left: -20px;
+  right: 0;
+  bottom: -70px;
+  width: 100%;
+  padding: 20px;
+  opacity: 0;
+  transition: all 0.1s;
+  text-align: center;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-bottom: 100px;
+  transform: translateZ(300px);
+  height: 71%;
+}
+
+.carousel-card.active.hovered .card-overlay {
+  opacity: 1;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.carousel-text {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  font-size: 28px;
+  left: 10%;
+  top: 48px;
+  transform: translateZ(120px);
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-text.active {
+  opacity: 1;
+  color: white;
+}
+
+.carousel-card:not(.active) .carousel-text {
+  transition: opacity 0.4s ease-out 0.1s;
+}
+
+h3 {
+  opacity: 1;
+}
+
+.carousel-card.active.hovered h3 {
+  opacity: 0;
+}
+
+.card-description {
+  color: white;
+  font-size: 17px;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  max-width: 90%;
+  overflow-wrap: break-word;
+  padding-top: 24px;
+}
+
+.carousel-text span {
+  display: block;
+  max-width: 90%;
+  margin: 0 auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.nav-button {
+  position: relative;
+  padding: 16px 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60px;
+  width: 80px;
+}
+
+.nav-left {
+  left: 32px;
+}
+
+.nav-right {
+  right: 32px;
+}
+
+.nav-button:focus {
+  outline: none;
+}
+
+.nav-button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.card-img {
+  height: auto;
+  width: 100%;
+  max-width: 312px;
+  transform: translateX(-0px) translateY(-9px);
+}
+
+.card-overlay-inside {
+  padding-bottom: 0;
+}
+
+.icon-carousel {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 10px;
+  color: white;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.5));
+  padding-bottom: 24px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .showcase-title {
+    font-size: 3rem;
+  }
+
+  .carousel-wrapper {
+    transform: translateZ(-240px);
+  }
+
+  .card-container {
+    max-width: 230px;
+  }
+
+  .carousel-stage {
+    transform: translateY(-200px);
+  }
+
+  .card-img {
+    height: auto;
+    width: 100%;
+  }
+
+  .carousel-text {
+    font-size: 20px;
+    top: 24px;
+  }
+
+  .icon-carousel {
+    width: 60px;
+    height: 60px;
+  }
+
+  .card-overlay {
+    transform: translateY(20px) translateZ(100px);
+  }
+
+  .nav-button {
+    font-size: 24px;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .showcase-container {
+    padding-top: 40px;
+    padding-bottom: 100px;
+  }
+
+  .carousel-stage {
+    transform: translateY(-160px);
+  }
+
+  .card-overlay {
+    transform: translateY(24px) translateZ(100px);
+  }
+
+  .card-container {
+    max-width: 220px;
+  }
+
+  .carousel-text {
+    font-size: 16px;
+  }
+
+  .card-description {
+    font-size: 14px;
+  }
+
+  .icon-carousel {
+    width: 40px;
+    height: 40px;
+  }
+}

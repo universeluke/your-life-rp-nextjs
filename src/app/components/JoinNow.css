@@ -1,0 +1,117 @@
+/* JoinNow.css */
+
+/* Section Styles */
+.join-section {
+  padding: 5rem 0;
+  background: linear-gradient(to right, #240024, rgb(14, 11, 41), #240024);
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+/* Title and Description Styles */
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: white;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+.description {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #d1d5db;
+}
+
+/* Call to Action Button */
+
+/* Arrow Icon Styles */
+.arrow-icon {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .arrow-icon {
+  transform: translateX(0.5rem);
+}
+
+/* Step Cards */
+.steps-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .steps-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Step Card Styles */
+.step-card {
+  background-color: rgba(31, 41, 55, 0.5);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.2s ease;
+}
+
+.step-card:hover {
+  background-color: rgba(31, 41, 55, 0.7);
+  transform: scale(1);
+  box-shadow: 0px 5px 15px 0 #28bfff, 0 -5px 10px 0px #f694ff,
+    0 0px 20px 10px #a201ff;
+}
+
+/* Step Icon Styles */
+.step-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.step-card .blue {
+  color: #3b82f6;
+}
+
+.step-card .purple {
+  color: #8b5cf6;
+}
+
+/* Step Title and Description */
+.step-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #e0e7ff;
+}
+
+.step-description {
+  color: #d1d5db;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,58 @@
+/* Footer.css */
+
+/* General Footer Styles */
+.footer {
+  background-image: url("/footer.png");
+  padding: 2rem 0;
+  position: relative;
+  /* Add this for the hot pink glow effect */
+  border-top: 2px solid #ff28d0;
+  box-shadow: 0 -10px 20px rgba(255, 39, 154, 0.6);
+}
+
+.footer-container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  .footer-content {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.footer-logo {
+  height: 70px;
+  width: 70px;
+  transform: scale(1.3);
+  transition: all 0.2s ease;
+  padding: 0;
+  margin: 0;
+  opacity: 90%;
+}
+
+.footer-logo:hover {
+  transform: scale(1.4);
+}
+
+.footer-powered {
+  bottom: 0;
+  padding-top: 15px;
+  margin: 0;
+  font-size: 12px;
+}

@@ -1,0 +1,41 @@
+.image-belt-container {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(to right, #000000, rgb(22, 34, 70), #000000);
+  padding-bottom: 0;
+}
+
+.image-belt-wrapper {
+  position: relative;
+  height: 7rem; /* Reduced from 12rem to 8rem */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.image-belt {
+  position: absolute;
+  display: flex;
+  left: 0;
+  gap: 1rem; /* Space between images */
+  will-change: transform; /* Optimize animation performance */
+  padding: 0;
+}
+
+.image-item {
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 100px;
+}
+
+.belt-image {
+  height: 7rem; /* Set consistent height for all images */
+  width: auto; /* Let width adjust based on aspect ratio */
+  object-fit: cover; /* This will crop the image to maintain aspect ratio */
+  display: block;
+  padding: 0;
+}
