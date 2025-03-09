@@ -1,5 +1,7 @@
 import React from "react";
 import "./Footer.css"; // Import the CSS file for styling
+import Link from "next/link";
+import Image from "next/image";
 
 const Footer: React.FC = () => {
   return (
@@ -8,9 +10,15 @@ const Footer: React.FC = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div>
-            <a href="/">
-              <img className="footer-logo" src="/LS_LOGO.png"></img>
-            </a>
+            <Link href="/">
+              <Image
+                width={500}
+                height={500}
+                alt={"footerlogo"}
+                className="footer-logo"
+                src="/LS_LOGO.png"
+              ></Image>
+            </Link>
           </div>
         </div>
         <div className="footer-footer">

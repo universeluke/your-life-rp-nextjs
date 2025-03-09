@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import "./Hero.css";
+import Image from "next/image";
 
 const Hero: React.FC = () => {
   const backgroundRef = useRef<HTMLDivElement>(null);
@@ -29,7 +30,7 @@ const Hero: React.FC = () => {
     <section className="hero-section">
       <div ref={backgroundRef} className="parallax-background"></div>
       <div ref={foregroundRef} className="parallax-foreground">
-        <img
+        <Image
           src="/parallax2.png"
           alt="Hills Foreground"
           width={1920} // Set to your image's actual width

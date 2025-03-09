@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import "./ScrollingImageBelt.css";
+import Image from "next/image";
 
 interface ImageItem {
   id: number;
@@ -146,7 +147,13 @@ const ScrollingImageBelt: React.FC = () => {
         <div ref={beltRef} className="image-belt">
           {extendedImages.map((image, index) => (
             <div key={`${image.id}-${index}`} className="image-item">
-              <img src={image.src} alt={image.alt} className="belt-image" />
+              <Image
+                width={500}
+                height={500}
+                src={image.src}
+                alt={image.alt}
+                className="belt-image"
+              />
             </div>
           ))}
         </div>
