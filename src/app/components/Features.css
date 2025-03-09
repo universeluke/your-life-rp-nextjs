@@ -163,10 +163,10 @@
   }
 
   .features-grid {
-    gap: 1rem;
+    gap: 2rem;
     padding-top: 20rem;
     grid-template-columns: repeat(2, 1fr);
-    padding-right: 60px;
+    padding-right: 70px;
     padding-bottom: 0px;
   }
 
