@@ -113,7 +113,7 @@ nav {
 @media (max-width: 976px) {
   .header {
     height: auto;
-    padding: 0.75rem;
+    padding: 0rem;
   }
 
   .container {
@@ -127,7 +127,7 @@ nav {
   }
 
   .nav-link {
-    font-size: 1rem; /* Smaller font size for mobile */
+    font-size: 0.8rem; /* Smaller font size for mobile */
   }
 
   .logo img {
