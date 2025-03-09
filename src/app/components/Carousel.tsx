@@ -1,7 +1,7 @@
 "use client";
 
 // Carousel.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Carousel.css";
 import {
   Landmark,
@@ -23,6 +23,20 @@ interface Card {
 const Carousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  // Add scroll event listener for parallax effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const cards: Card[] = [
     {
@@ -124,9 +138,14 @@ const Carousel = () => {
     }
   };
 
+  // Calculate title transform based on scroll position (higher start position, more subtle movement)
+  const titleTransform = `translateY(${-60 + scrollY * 0.2}px)`;
+
   return (
     <div id="showcase" className="showcase-container">
-      <h1 className="showcase-title">Showcase</h1>
+      <h1 className="showcase-title" style={{ transform: titleTransform }}>
+        SHOWCASE
+      </h1>
       <div className="carousel-container">
         <Image
           width={50}
@@ -137,7 +156,10 @@ const Carousel = () => {
           alt="Previous"
         />
 
-        <div className="carousel-stage">
+        <div
+          className="carousel-stage"
+          style={{ transform: "translateY(-240px)" }}
+        >
           <div className="carousel-wrapper">
             {cards.map((card, index) => {
               const { x, z, rotateY, isActive } = calculateCardPosition(index);

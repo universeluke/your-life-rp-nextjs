@@ -1,7 +1,7 @@
 .image-belt-container {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(to right, #000000, rgb(22, 34, 70), #000000);
+  background: linear-gradient(to bottom, #380334, #2b0e4d, #120634);
   padding-bottom: 0;
 }
 
@@ -12,6 +12,18 @@
   padding-bottom: 10px;
   margin: 0;
   overflow: hidden;
+}
+
+.grid-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(241, 0, 177, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(241, 0, 177, 0.2) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  background-position: center;
 }
 
 .image-belt {

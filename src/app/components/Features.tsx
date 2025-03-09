@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Shield, Users, Briefcase, Map, Zap, Crosshair } from "lucide-react";
 import "./Features.css";
 
@@ -60,6 +60,7 @@ const hoverImages = [
 
 const Features = () => {
   const featureCardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const [scrollY, setScrollY] = useState(0);
 
   // Function to get random rotation between -1.2 and 1.2 degrees
   const getRandomRotation = () => {
@@ -83,37 +84,57 @@ const Features = () => {
     });
   }, []);
 
+  // Add scroll event listener for parallax effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Calculate title transform based on scroll position (adjusted for reduced empty space)
+  const titleTransform = `translateY(${-30 + scrollY * 0.2}px)`;
+
   return (
     <section id="features" className="features-section">
-      <div className="container">
-        <h2 className="features-title">Server Features</h2>
-        <div className="features-grid">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="feature-card"
-              ref={(el) => {
-                featureCardsRef.current[index] = el;
-              }}
-              onMouseEnter={(e) => {
-                const card = e.currentTarget;
-                const randomImage = getRandomImage();
-                card.style.backgroundImage = `url(${randomImage})`;
-                card.style.transform = `scale(1.05) ${getRandomRotation()}`;
-              }}
-              onMouseLeave={(e) => {
-                const card = e.currentTarget;
-                // Generate a new random image on mouse leave instead of removing the background
-                const randomImage = getRandomImage();
-                card.style.backgroundImage = `url(${randomImage})`;
-                card.style.transform = "scale(1) rotate(0deg)";
-              }}
-            >
-              <div className="feature-icon">{feature.icon}</div>
-              <h3 className="feature-title">{feature.title}</h3>
-              <p className="feature-description">{feature.description}</p>
-            </div>
-          ))}
+      <div className="features-container">
+        <div className="container">
+          <h2 className="features-title" style={{ transform: titleTransform }}>
+            SERVER FEATURES
+          </h2>
+          <div className="features-grid">
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className="feature-card"
+                ref={(el) => {
+                  featureCardsRef.current[index] = el;
+                }}
+                onMouseEnter={(e) => {
+                  const card = e.currentTarget;
+                  const randomImage = getRandomImage();
+                  card.style.backgroundImage = `url(${randomImage})`;
+                  card.style.transform = `scale(1.05) ${getRandomRotation()}`;
+                }}
+                onMouseLeave={(e) => {
+                  const card = e.currentTarget;
+                  // Generate a new random image on mouse leave instead of removing the background
+                  const randomImage = getRandomImage();
+                  card.style.backgroundImage = `url(${randomImage})`;
+                  card.style.transform = "scale(1) rotate(0deg)";
+                }}
+              >
+                <div className="feature-icon">{feature.icon}</div>
+                <h3 className="feature-title">{feature.title}</h3>
+                <p className="feature-description">{feature.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

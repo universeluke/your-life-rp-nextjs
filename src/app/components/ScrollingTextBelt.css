@@ -1,11 +1,12 @@
 .text-belt-container {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(to right, #000000, rgb(15, 23, 50), #000000);
+  background: linear-gradient(to bottom, #150424, #09052e, #200423);
   padding-bottom: 0;
   border: 10px;
   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.5);
   transform: translateZ(100px);
+  border-bottom: 2px solid #ed6ed1;
 }
 
 .text-belt-wrapper {
@@ -33,7 +34,7 @@
   padding: 0;
   padding-left: 15px;
   padding-right: 15px;
-  background-color: rgb(15, 21, 43);
+  background-color: rgb(78, 20, 91);
   box-shadow: 0 0px 12px rgba(0, 0, 0, 0.5);
 }
 

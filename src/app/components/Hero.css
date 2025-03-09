@@ -79,7 +79,7 @@ body {
   background-clip: text;
   color: aliceblue;
   animation: pulsesmall 10s infinite;
-  text-shadow: 0 0 10px rgba(154, 160, 183, 0.7);
+  text-shadow: 0 0 10px #ff2975, 0 0 20px #00ddff;
   -webkit-background-clip: text;
 }
 
@@ -99,7 +99,7 @@ body {
 .hero-subtitle {
   font-size: 1.25rem;
   margin-bottom: 2rem;
-  color: #d1d5db;
+  color: #ececec;
 }
 
 /* Call to Action Button */

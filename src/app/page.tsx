@@ -15,11 +15,14 @@ function Home() {
       <Header />
       <Hero />
       <Beam />
-      <Community />
-      <ScrollingImageBelt />
-      <ScrollingTextBelt />
       <Carousel />
       <Features />
+      <Beam />
+      <ScrollingImageBelt />
+      <Beam />
+      <ScrollingTextBelt />
+
+      <Community />
       {/* <JoinNow /> */}
       <Footer />
     </div>

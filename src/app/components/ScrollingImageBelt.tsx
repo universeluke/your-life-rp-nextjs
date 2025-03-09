@@ -144,6 +144,7 @@ const ScrollingImageBelt: React.FC = () => {
   return (
     <div className="image-belt-container">
       <div className="image-belt-wrapper">
+        <div className="grid-lines"></div>
         <div ref={beltRef} className="image-belt">
           {extendedImages.map((image, index) => (
             <div key={`${image.id}-${index}`} className="image-item">

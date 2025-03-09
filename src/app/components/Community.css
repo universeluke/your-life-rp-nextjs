@@ -2,7 +2,7 @@
   padding: 5rem 0;
   background: linear-gradient(to bottom, #0f0524, #2b0e4d, #120634);
   position: relative;
-  padding-top: 140px;
+  padding-top: 80px;
   padding-bottom: 140px;
   overflow: hidden;
 }
@@ -63,7 +63,7 @@
 }
 
 .community-title {
-  font-size: 3.5rem;
+  font-size: clamp(0.7rem, 15vw, 5rem);
   font-weight: bold;
   text-align: center;
   margin-bottom: 3rem;
