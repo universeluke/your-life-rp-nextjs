@@ -53,7 +53,7 @@ const Header: React.FC = () => {
                   href={
                     item == "COMMUNITY"
                       ? "#community"
-                      : "https://discord.gg/kMxqxmfFT6"
+                      : "https://discord.com/invite/yourliferp"
                   }
                   className="nav-link"
                 >
