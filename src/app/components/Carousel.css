@@ -278,7 +278,7 @@ h3 {
 @media (max-width: 768px) {
   .showcase-title {
     font-size: 3rem;
-    margin-bottom: 1.5rem; /* Reduced margin for mobile */
+    margin-bottom: 0rem; /* Reduced margin for mobile */
   }
 
   .showcase-container {
@@ -315,37 +315,5 @@ h3 {
   .nav-button {
     font-size: 24px;
     padding: 8px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .showcase-container {
-    padding-top: 20px; /* Even less padding on smaller screens */
-    padding-bottom: 80px;
-  }
-
-  .showcase-title {
-    margin-bottom: 1rem;
-  }
-
-  .card-overlay {
-    transform: translateY(24px) translateZ(100px);
-  }
-
-  .card-container {
-    max-width: 220px;
-  }
-
-  .carousel-text {
-    font-size: 16px;
-  }
-
-  .card-description {
-    font-size: 14px;
-  }
-
-  .icon-carousel {
-    width: 40px;
-    height: 40px;
   }
 }
