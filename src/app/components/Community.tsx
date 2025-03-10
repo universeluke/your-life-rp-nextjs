@@ -26,16 +26,25 @@ interface StarProps {
   animationDelay: string;
 }
 
+const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+const firstDate = new Date(2025, 2, 20);
+const secondDate = new Date();
+
+const uptime = Math.round((Number(secondDate) - Number(firstDate)) / oneDay);
+// console.log(`first date is ${firstDate}`);
+// console.log(`second date is ${secondDate}`);
+// console.log(uptime);
+
 const stats: StatItem[] = [
   {
     icon: <Users className="icon" />,
-    value: "10,000+",
-    label: "Active Players",
+    value: "20+",
+    label: "Active Devs",
   },
   {
     icon: <MessageSquare className="icon" />,
-    value: "500,000+",
-    label: "Forum Posts",
+    value: "100+",
+    label: "Discord Users",
   },
   {
     icon: <ThumbsUp className="icon" />,
@@ -45,10 +54,9 @@ const stats: StatItem[] = [
   { icon: <Star className="icon" />, value: "50+", label: "Custom Scripts" },
   {
     icon: <Calendar className="icon" />,
-    value: "365",
+    value: `${uptime}`,
     label: "Days of Uptime",
   },
-  { icon: <Award className="icon" />, value: "#1", label: "Ranked Server" },
 ];
 
 //claude magic for generating stars
@@ -108,6 +116,16 @@ const Community: React.FC = () => {
               <p className="stat-label">{stat.label}</p>
             </div>
           ))}
+          <div className="stat-card">
+            <div className="stat-icon">
+              <Award className="icon" />
+            </div>
+            <h3 className="stat-value">#1</h3>
+            <div className="stat-label">
+              Ranked Server
+              <div className="stat-card-footer">in our hearts</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

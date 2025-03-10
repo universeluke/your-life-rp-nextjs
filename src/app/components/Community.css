@@ -227,3 +227,11 @@
     padding-right: 50px;
   }
 }
+
+.stat-card-footer {
+  font-size: 0.5rem;
+  padding: 0;
+  margin: 0;
+  padding-left: 45px;
+  position: absolute;
+}
