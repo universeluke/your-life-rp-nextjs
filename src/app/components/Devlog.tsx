@@ -24,8 +24,8 @@ interface GitHubCommitLogProps {
 }
 
 export default function GitHubCommitLog({
-  owner = "universeluke",
-  repo = "your-life-rp-nextjs", // Just the repo name, not the full URL
+  owner = "DanskieTV",
+  repo = "Your-LifeRP", // Just the repo name, not the full URL
   count = 5,
 }: GitHubCommitLogProps) {
   const [commits, setCommits] = useState<Commit[]>([]);
