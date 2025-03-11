@@ -46,7 +46,23 @@ export async function GET(request: NextRequest) {
     const data = await response.json();
 
     // Format the data to include only what we need
-    const commits = data.map((item) => ({
+    interface CommitItem {
+      sha: string;
+      commit: {
+        message: string;
+        author: {
+          date: string;
+          name: string;
+          email: string;
+        };
+      };
+      html_url: string;
+      author: {
+        avatar_url: string;
+      } | null;
+    }
+
+    const commits = data.map((item: CommitItem) => ({
       sha: item.sha,
       message: item.commit.message.split("\n")[0], // Just get the first line of the commit message
       date: item.commit.author.date,
