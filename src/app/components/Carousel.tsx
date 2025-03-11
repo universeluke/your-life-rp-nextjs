@@ -36,7 +36,10 @@ const Carousel = () => {
   }, []);
 
   // Add the debounce utility function
-  const debounce = (func: Function, wait: number) => {
+  const debounce = (
+    func: (...args: any[]) => void,
+    wait: number
+  ): ((...args: any[]) => void) => {
     let timeout: NodeJS.Timeout;
     return function executedFunction(...args: any[]) {
       const later = () => {

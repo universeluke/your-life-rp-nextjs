@@ -3,15 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import { Shield, Users, Briefcase, Map, Zap, Crosshair } from "lucide-react";
 import "./Features.css";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 // Lazy load less critical components
-const JoinNow = dynamic(() => import('./JoinNow'), {
-  loading: () => <p>Loading...</p>,
-  ssr: false
-});
+// might comment this out for now? the JoinNow component isn't used at all, and this import is stopping deployment
+// const JoinNow = dynamic(() => import('./JoinNow'), {
+//   loading: () => <p>Loading...</p>,
+//   ssr: false
+// });
 
-// Array of feature data
 const features = [
   {
     icon: <Shield className="icon" />,
