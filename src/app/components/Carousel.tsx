@@ -25,18 +25,28 @@ const Carousel = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
-  // Add scroll event listener for parallax effect
+  // Add debounced scroll handler
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = debounce(() => {
       setScrollY(window.scrollY);
-    };
+    }, 10); // 10ms debounce
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Add the debounce utility function
+  const debounce = (func: Function, wait: number) => {
+    let timeout: NodeJS.Timeout;
+    return function executedFunction(...args: any[]) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
 
   const cards: Card[] = [
     {

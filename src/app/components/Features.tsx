@@ -3,6 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Shield, Users, Briefcase, Map, Zap, Crosshair } from "lucide-react";
 import "./Features.css";
+import dynamic from 'next/dynamic';
+
+// Lazy load less critical components
+const JoinNow = dynamic(() => import('./JoinNow'), {
+  loading: () => <p>Loading...</p>,
+  ssr: false
+});
 
 // Array of feature data
 const features = [

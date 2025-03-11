@@ -30,9 +30,11 @@
   position: absolute;
   display: flex;
   left: 0;
-  gap: 1rem; /* Space between images */
-  will-change: transform; /* Optimize animation performance */
-  padding: 0;
+  gap: 1rem;
+  will-change: transform;
+  transform: translateZ(0); /* Enable hardware acceleration */
+  backface-visibility: hidden;
+  perspective: 1000px;
 }
 
 .image-item {
@@ -42,6 +44,8 @@
   padding: 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   border-radius: 100px;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .belt-image {

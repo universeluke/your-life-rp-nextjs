@@ -12,7 +12,9 @@ interface ImageItem {
 
 const ScrollingImageBelt: React.FC = () => {
   const beltRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | null>(null);
   const [beltWidth, setBeltWidth] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(true);
 
   // Your custom images array - replace with your actual image paths
   const images: ImageItem[] = [
@@ -81,6 +83,38 @@ const ScrollingImageBelt: React.FC = () => {
   // Duplicate the images to ensure we have enough for continuous scrolling
   const extendedImages = [...images, ...images, ...images];
 
+  const startAnimation = () => {
+    if (!isAnimating) {
+      setIsAnimating(true);
+      animate();
+    }
+  };
+
+  const stopAnimation = () => {
+    setIsAnimating(false);
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
+  };
+
+  const animate = () => {
+    const belt = beltRef.current;
+    if (!belt || !isAnimating || beltWidth === 0) return;
+
+    let position = parseFloat(belt.style.transform.replace(/[^\d.-]/g, '')) || 0;
+    const speed = 0.5; // Pixels per frame (adjust for speed)
+
+    position -= speed;
+
+    // When we've scrolled one full set of images, reset to beginning
+    if (position <= -beltWidth) {
+      position += beltWidth;
+    }
+
+    belt.style.transform = `translateX(${position}px)`;
+    animationRef.current = requestAnimationFrame(animate);
+  };
+
   useEffect(() => {
     const belt = beltRef.current;
     if (!belt || belt.children.length === 0) return;
@@ -89,55 +123,40 @@ const ScrollingImageBelt: React.FC = () => {
     let totalWidth = 0;
     const items = Array.from(belt.children) as HTMLElement[];
 
-    // Wait for images to load to get accurate width measurements
     const calculateWidths = () => {
       totalWidth = 0;
       items.forEach((item) => {
         totalWidth += item.offsetWidth + 16; // 16px is the gap (1rem)
       });
-
-      setBeltWidth(totalWidth / 3); // Divide by 3 because we've tripled the images
+      setBeltWidth(totalWidth / 3);
     };
 
-    // Initial calculation
     calculateWidths();
-
-    // Recalculate when window resizes
     window.addEventListener("resize", calculateWidths);
 
-    // Allow a moment for images to load
-    setTimeout(calculateWidths, 500);
+    // Set up intersection observer
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            startAnimation();
+          } else {
+            stopAnimation();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(belt);
+
+    // Start initial animation
+    startAnimation();
 
     return () => {
       window.removeEventListener("resize", calculateWidths);
-    };
-  }, []);
-
-  useEffect(() => {
-    const belt = beltRef.current;
-    if (!belt || beltWidth === 0) return;
-
-    let animationId: number;
-    let position = 0;
-    const speed = 1; // Pixels per frame (adjust for speed)
-
-    const scroll = () => {
-      position -= speed;
-
-      // When we've scrolled one full set of images, reset to beginning
-      // This creates the infinite loop effect without any jumps
-      if (position <= -beltWidth) {
-        position += beltWidth;
-      }
-
-      belt.style.transform = `translateX(${position}px)`;
-      animationId = requestAnimationFrame(scroll);
-    };
-
-    animationId = requestAnimationFrame(scroll);
-
-    return () => {
-      cancelAnimationFrame(animationId);
+      observer.disconnect();
+      stopAnimation();
     };
   }, [beltWidth]);
 
@@ -154,6 +173,8 @@ const ScrollingImageBelt: React.FC = () => {
                 src={image.src}
                 alt={image.alt}
                 className="belt-image"
+                loading={index < 4 ? "eager" : "lazy"}
+                priority={index < 2}
               />
             </div>
           ))}
