@@ -39,13 +39,14 @@
   width: auto;
   transition: transform 0.2s ease;
   opacity: 0.9;
-  transform: scale(1.5);
+  transform: scale(1.4);
   padding-left: 20px;
   padding-right: 20px;
+  padding-top: 7px;
 }
 
 .logo:hover img {
-  transform: scale(1.7);
+  transform: scale(1.6);
 }
 
 /* Navigation Styles */
@@ -107,8 +108,8 @@ nav {
   }
 
   .nav-list {
-    gap: 0.6rem;
-    width: 170px;
+    gap: 0.4rem;
+    width: 140px;
   }
 
   .nav-link {
@@ -118,7 +119,21 @@ nav {
 
   .logo img {
     height: 40px;
-    padding: 0;
-    padding-top: 5px;
+    width: auto;
+    transition: transform 0.2s ease;
+    opacity: 0.9;
+    transform: scale(1.5);
+    padding-right: 10px;
+  }
+
+  .logo {
+    padding: 0px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.3rem;
   }
 }
