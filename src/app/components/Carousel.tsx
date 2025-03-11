@@ -25,6 +25,22 @@ const Carousel = () => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
+  // Add the debounce utility function with proper typing
+  const debounce = <T extends (...args: unknown[]) => void>(
+    func: T,
+    wait: number
+  ): ((...args: Parameters<T>) => void) => {
+    let timeout: NodeJS.Timeout;
+    return function executedFunction(...args: Parameters<T>) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
   // Add debounced scroll handler
   useEffect(() => {
     const handleScroll = debounce(() => {
@@ -34,22 +50,6 @@ const Carousel = () => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Add the debounce utility function
-  const debounce = (
-    func: (...args: any[]) => void,
-    wait: number
-  ): ((...args: any[]) => void) => {
-    let timeout: NodeJS.Timeout;
-    return function executedFunction(...args: any[]) {
-      const later = () => {
-        clearTimeout(timeout);
-        func(...args);
-      };
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-    };
-  };
 
   const cards: Card[] = [
     {

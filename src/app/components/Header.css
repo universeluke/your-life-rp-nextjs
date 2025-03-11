@@ -36,14 +36,17 @@
 }
 
 .logo img {
-  height: 60px;
+  height: 70px;
   width: auto;
   transition: transform 0.2s ease;
   opacity: 0.9;
+  transform: scale(1.5);
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .logo:hover img {
-  transform: scale(1.07);
+  transform: scale(1.7);
 }
 
 /* Navigation Styles */
@@ -105,15 +108,18 @@ nav {
   }
 
   .nav-list {
-    gap: 1rem;
+    gap: 1.3rem;
+    width: 170px;
   }
 
   .nav-link {
     font-size: 0.8rem;
-    padding: 0.3rem 0.5rem;
+    padding: 0px;
   }
 
   .logo img {
     height: 40px;
+    padding: 0;
+    padding-top: 5px;
   }
 }
