@@ -4,9 +4,12 @@ import React, { useState, useEffect } from "react";
 import "./Header.css";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +20,7 @@ const Header: React.FC = () => {
   }, []);
 
   const leftNavItems = ["FEATURES", "SHOWCASE"];
-  const rightNavItems = ["COMMUNITY", "CONNECT"];
+  const rightNavItems = ["DEV LOG", "CONNECT"];
 
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
@@ -26,13 +29,19 @@ const Header: React.FC = () => {
           <ul className="nav-list left">
             {leftNavItems.map((item) => (
               <li key={item} className="nav-item">
-                <a
-                  href={item == "FEATURES" ? "#features" : "#showcase"}
+                <Link
+                  href={
+                    isHomePage
+                      ? item === "FEATURES"
+                        ? "#features"
+                        : "#showcase"
+                      : `/${item === "FEATURES" ? "#features" : "#showcase"}`
+                  }
                   className="nav-link"
                 >
                   {item}
                   <span className="underline"></span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -49,17 +58,19 @@ const Header: React.FC = () => {
           <ul className="nav-list right">
             {rightNavItems.map((item) => (
               <li key={item} className="nav-item">
-                <a
+                <Link
                   href={
-                    item == "COMMUNITY"
-                      ? "#community"
+                    item === "DEV LOG"
+                      ? "/devlog"
                       : "https://discord.com/invite/yourliferp"
                   }
                   className="nav-link"
+                  target={item === "CONNECT" ? "_blank" : undefined}
+                  rel={item === "CONNECT" ? "noopener noreferrer" : undefined}
                 >
                   {item}
                   <span className="underline"></span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

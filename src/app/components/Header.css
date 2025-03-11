@@ -3,7 +3,6 @@
   padding: 1rem 0;
   position: fixed;
   top: 3rem;
-  left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
   transition: all 0.3s ease;
@@ -15,8 +14,9 @@
   height: 5.5%;
   display: flex;
   align-items: center; /* Centers the nav content vertically */
-  padding-left: 2rem; /* Add padding to the left side of the header */
-  padding-right: 2rem; /* Add padding to the right side of the header */
+  padding-left: 0rem; /* Add padding to the left side of the header */
+  padding-right: 0rem; /* Add padding to the right side of the header */
+  left: 50%;
 }
 
 .header.scrolled {

@@ -1,0 +1,333 @@
+/* GitHubsynth-CommitLog.css - Synthwave Edition */
+
+/* Main container with synthwave gradient background */
+
+.synth-commit-container {
+  padding: 2rem;
+  padding-top: 0px;
+  padding-bottom: 1rem;
+  background: linear-gradient(to bottom, #0f0524, #2b0e4d, #120634);
+  border-radius: 0.75rem;
+  box-shadow: 0 0 30px rgba(255, 41, 117, 0.3);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 41, 117, 0.3);
+  backdrop-filter: blur(8px);
+  margin: 0rem auto;
+  margin-top: 12rem;
+  max-width: 1000px;
+  z-index: 1;
+}
+
+/* Grid lines overlay */
+.synth-commit-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(241, 0, 177, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(241, 0, 177, 0.2) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  background-position: center;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg);
+  animation: synth-grid-movement 15s linear infinite;
+  z-index: -1;
+}
+
+@keyframes synth-grid-movement {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 4rem;
+  }
+}
+
+/* Synthwave sun */
+.synth-commit-container::after {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to top, #ff2975, #f85bff);
+  border-radius: 150px 150px 0 0;
+  filter: blur(20px);
+  opacity: 0.5;
+  z-index: -1;
+  box-shadow: 0 0 50px #ff2975, 0 0 100px #f85bff;
+}
+
+/* Heading with neon effect */
+.synth-commit-heading {
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 10px #ff2975, 0 0 20px #00ddff;
+  letter-spacing: 3px;
+  position: relative;
+}
+
+/* List styling */
+.synth-commit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual synth-commit items with neon border effect */
+.synth-commit-item {
+  background-color: rgba(13, 13, 26, 0.7);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid rgba(255, 41, 117, 0.3);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(255, 41, 117, 0.2);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.synth-commit-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  padding: 2px;
+  background: linear-gradient(45deg, #ff2975, #00ddff);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.synth-commit-item:hover::before {
+  opacity: 1;
+}
+
+/* Staggered animation delay for list items */
+.synth-commit-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.synth-commit-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.synth-commit-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.synth-commit-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.synth-commit-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.synth-commit-item:nth-child(n + 6) {
+  animation-delay: 0.6s;
+}
+
+.synth-commit-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 5px 20px rgba(255, 41, 117, 0.4),
+    0 -5px 20px rgba(0, 221, 255, 0.4);
+}
+
+/* Content layout */
+.synth-commit-content {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Avatar styling with cyberpunk effect */
+.synth-commit-avatar-container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1rem;
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #ff2975, #00ddff) border-box;
+  mask-composite: exclude;
+  transition: all 0.3s ease;
+}
+
+.synth-commit-item:hover .synth-commit-avatar-container {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 15px rgba(0, 221, 255, 0.7);
+}
+
+.synth-commit-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+  filter: saturate(1.2) contrast(1.1);
+}
+
+/* synth-Commit details */
+.synth-commit-details {
+  flex: 1;
+}
+
+.synth-commit-message {
+  font-weight: 600;
+  color: #f85bff;
+  transition: all 0.3s ease;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 0 0 5px rgba(248, 91, 255, 0.5);
+}
+
+.synth-commit-item:hover .synth-commit-message {
+  color: #00ddff;
+  text-shadow: 0 0 10px rgba(0, 221, 255, 0.7);
+}
+
+.synth-commit-meta {
+  display: flex;
+  font-size: 0.875rem;
+  color: #c0c0dd;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+.synth-commit-separator {
+  margin: 0 0.5rem;
+  color: rgba(255, 41, 117, 0.5);
+}
+
+/* Loading state with neon spinner */
+.synth-commit-loading {
+  padding: 2rem;
+  padding-top: 50rem;
+  text-align: center;
+  color: #c0c0dd;
+  position: relative;
+}
+
+.synth-commit-loading::after {
+  content: "";
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid rgba(0, 221, 255, 0.2);
+  border-top-color: #00ddff;
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
+  position: absolute;
+  top: calc(50% - 1rem);
+  left: calc(50% - 1rem);
+  box-shadow: 0 0 15px rgba(0, 221, 255, 0.5);
+}
+
+.synth-commit-error {
+  padding: 1.5rem;
+  color: #ff2975;
+  background-color: rgba(255, 41, 117, 0.1);
+  border-left: 3px solid #ff2975;
+  border-radius: 0.5rem;
+  animation: shake 0.5s ease;
+  text-shadow: 0 0 10px rgba(255, 41, 117, 0.5);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+/* New synth-commit highlight with pulsing effect */
+.synth-commit-item.new {
+  position: relative;
+  overflow: hidden;
+}
+
+.synth-commit-item.new::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 41, 117, 0.3),
+    rgba(0, 221, 255, 0.3)
+  );
+  animation: pulse 3s ease infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 767px) {
+  .synth-commit-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .synth-commit-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .synth-commit-item {
+    padding: 1rem 0.75rem;
+  }
+
+  .synth-commit-avatar-container {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .synth-commit-list {
+    gap: 1rem;
+  }
+}
