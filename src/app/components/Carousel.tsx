@@ -1,6 +1,5 @@
 "use client";
 
-// Carousel.tsx
 import { useState, useEffect } from "react";
 import "./Carousel.css";
 import {
@@ -41,11 +40,10 @@ const Carousel = () => {
     };
   };
 
-  // Add debounced scroll handler
   useEffect(() => {
     const handleScroll = debounce(() => {
       setScrollY(window.scrollY);
-    }, 10); // 10ms debounce
+    }, 10);
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -151,7 +149,6 @@ const Carousel = () => {
     }
   };
 
-  // Calculate title transform based on scroll position (higher start position, more subtle movement)
   const titleTransform = `translateY(${-60 + scrollY * 0.2}px)`;
 
   return (
@@ -176,7 +173,7 @@ const Carousel = () => {
           <div className="carousel-wrapper">
             {cards.map((card, index) => {
               const { x, z, rotateY, isActive } = calculateCardPosition(index);
-              const scale = ((z + 360) / 360) * 0.5 + 0.5; // Updated to match the new radius
+              const scale = ((z + 360) / 360) * 0.5 + 0.5;
 
               return (
                 <div

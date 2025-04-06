@@ -1,5 +1,3 @@
-/* Hero.css */
-/* Base reset to prevent horizontal scrolling */
 html,
 body {
   overflow-x: hidden;
@@ -20,7 +18,6 @@ body {
   margin-top: 0;
 }
 
-/* Parallax Background */
 .parallax-background {
   position: absolute;
   inset: 0;
@@ -33,7 +30,6 @@ body {
   width: 100%;
 }
 
-/* Parallax Foreground */
 .parallax-foreground {
   position: absolute;
   inset: 0;
@@ -44,7 +40,6 @@ body {
   filter: brightness(1);
 }
 
-/* Ensure the foreground image covers properly */
 .parallax-foreground img {
   width: 100%;
   height: auto;
@@ -57,7 +52,6 @@ body {
   transform: scale(1);
 }
 
-/* Hero Content */
 .hero-content {
   position: relative;
   padding-bottom: 200px;
@@ -70,7 +64,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Title Styles */
 .hero-title {
   font-size: 4.5rem;
   font-weight: bold;
@@ -95,14 +88,12 @@ body {
   }
 }
 
-/* Subtitle Styles */
 .hero-subtitle {
   font-size: 1.25rem;
   margin-bottom: 2rem;
   color: #ececec;
 }
 
-/* Call to Action Button */
 .cta-button {
   background-color: rgba(92, 154, 225, 0.223);
   color: white;
@@ -121,7 +112,6 @@ body {
     0 0px 10px 0px #a201ff;
 }
 
-/* Animation on Hover */
 @keyframes float {
   0% {
     transform: translateY(0);
@@ -134,7 +124,6 @@ body {
   }
 }
 
-/* Tablet responsiveness */
 @media (max-width: 1024px) {
   .hero-title {
     font-size: 3.5rem;
@@ -146,7 +135,6 @@ body {
   }
 }
 
-/* Mobile responsiveness */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
@@ -167,7 +155,6 @@ body {
   }
 }
 
-/* Small mobile responsiveness */
 @media (max-width: 480px) {
   .hero-title {
     font-size: 2rem;

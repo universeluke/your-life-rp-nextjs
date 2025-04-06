@@ -12,11 +12,11 @@ const Hero: React.FC = () => {
     const handleScroll = () => {
       if (backgroundRef.current && foregroundRef.current) {
         const scrollY = window.scrollY;
-        // Background moves slower
+        // background moves slower
         backgroundRef.current.style.transform = `translateY(${
           scrollY * 0.5
         }px)`;
-        // Foreground moves faster for more depth
+        // foreground moves faster for more depth
         foregroundRef.current.style.transform = `translateY(${
           scrollY * 0.3
         }px)`;
@@ -33,8 +33,8 @@ const Hero: React.FC = () => {
         <Image
           src="/parallax2.png"
           alt="Hills Foreground"
-          width={1920} // Set to your image's actual width
-          height={1080} // Set to your image's actual height
+          width={1920}
+          height={1080}
         />
       </div>
       <div className="hero-content">

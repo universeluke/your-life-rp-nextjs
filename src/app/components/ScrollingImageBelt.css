@@ -7,7 +7,7 @@
 
 .image-belt-wrapper {
   position: relative;
-  height: 7rem; /* Reduced from 12rem to 8rem */
+  height: 7rem;
   padding-top: 10px;
   padding-bottom: 10px;
   margin: 0;
@@ -32,7 +32,7 @@
   left: 0;
   gap: 1rem;
   will-change: transform;
-  transform: translateZ(0); /* Enable hardware acceleration */
+  transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
@@ -49,9 +49,9 @@
 }
 
 .belt-image {
-  height: 7rem; /* Set consistent height for all images */
-  width: auto; /* Let width adjust based on aspect ratio */
-  object-fit: cover; /* This will crop the image to maintain aspect ratio */
+  height: 7rem;
+  width: auto;
+  object-fit: cover;
   display: block;
   padding: 0;
 }

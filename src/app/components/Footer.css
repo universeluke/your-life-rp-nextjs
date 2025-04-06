@@ -1,11 +1,8 @@
-/* Footer.css */
-
-/* General Footer Styles */
 .footer {
   background-image: url("/footer.png");
   padding: 2rem 0;
   position: relative;
-  /* Add this for the hot pink glow effect */
+
   border-top: 2px solid #ff28d0;
   box-shadow: 0 -10px 20px rgba(255, 39, 154, 0.6);
 }
@@ -61,4 +58,8 @@
   position: absolute;
   font-size: 0.6rem;
   text-align: center;
+}
+
+.github-link {
+  color: rgb(67, 199, 255);
 }

@@ -25,7 +25,7 @@ interface GitHubCommitLogProps {
 
 export default function GitHubCommitLog({
   owner = "DanskieTV",
-  repo = "Your-LifeRP", // Just the repo name, not the full URL
+  repo = "Your-LifeRP", // just the repo name, not the full URL
   count = 5,
 }: GitHubCommitLogProps) {
   const [commits, setCommits] = useState<Commit[]>([]);
@@ -36,7 +36,7 @@ export default function GitHubCommitLog({
     async function fetchCommits() {
       try {
         console.log(`Fetching commits for ${owner}/${repo}`);
-        // The GitHub API endpoint for commits
+
         const response = await fetch(
           `/api/devlogroute?owner=${owner}&repo=${repo}&count=${count}`
         );
@@ -52,9 +52,7 @@ export default function GitHubCommitLog({
         setLoading(false);
       } catch (err) {
         console.error("Fetch error:", err);
-        setError(
-          err instanceof Error ? err.message : "An unknown error occurred"
-        );
+        setError(err instanceof Error ? err.message : "uh oh error");
         setLoading(false);
       }
     }

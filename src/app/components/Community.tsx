@@ -27,7 +27,7 @@ interface StarProps {
 }
 
 const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
-const firstDate = new Date(2025, 2, 20);
+const firstDate = new Date(2025, 3, 4);
 const secondDate = new Date();
 
 const uptime = Math.round((Number(secondDate) - Number(firstDate)) / oneDay);

@@ -1,4 +1,3 @@
-/* Header.css */
 .header {
   position: fixed;
   top: 3rem;
@@ -21,14 +20,12 @@
   backdrop-filter: blur(8px);
 }
 
-/* Container Styles */
 .container {
   width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-/* Logo Styles */
 .logo {
   display: flex;
   align-items: center;
@@ -49,7 +46,6 @@
   transform: scale(1.6);
 }
 
-/* Navigation Styles */
 nav {
   display: flex;
   align-items: center;
@@ -83,7 +79,6 @@ nav {
   color: #57e0ff;
 }
 
-/* Underline effect */
 .underline {
   position: absolute;
   left: 0;
@@ -99,7 +94,6 @@ nav {
   transform: scaleX(1);
 }
 
-/* Additional Mobile responsiveness */
 @media (max-width: 768px) {
   .header {
     top: 1rem;

@@ -11,7 +11,7 @@
 
 .text-belt-wrapper {
   position: relative;
-  height: 2.5rem; /* Reduced from 12rem to 8rem */
+  height: 2.5rem;
   padding-top: 10px;
   padding-bottom: 20px;
   margin: 0;
@@ -22,8 +22,8 @@
   position: absolute;
   display: flex;
   left: 0;
-  gap: 1.5rem; /* Space between images */
-  will-change: transform; /* Optimize animation performance */
+  gap: 1.5rem;
+  will-change: transform;
   padding: 0;
 }
 
@@ -39,8 +39,8 @@
 }
 
 .belt-text {
-  width: auto; /* Let width adjust based on aspect ratio */
-  object-fit: cover; /* This will crop the image to maintain aspect ratio */
+  width: auto;
+  object-fit: cover;
   display: block;
   padding: 0;
 }

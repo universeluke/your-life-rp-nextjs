@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css"; // Import the CSS file for styling
+import "./Footer.css";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -26,7 +26,18 @@ const Footer: React.FC = () => {
             Powered by FiveM, React, and coffee | Not affiliated with Rockstar
             Games
           </p>
-          <p className="footer-credits">Credits: Luke Davies 2025</p>
+          <p className="footer-credits">
+            Created by:{" "}
+            <a
+              href="https://github.com/universeluke"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="github-link"
+            >
+              universeluke
+            </a>{" "}
+            2025
+          </p>
         </div>
       </div>
     </footer>

@@ -5,7 +5,6 @@ import { Shield, Users, Briefcase, Map, Zap, Crosshair } from "lucide-react";
 import "./Features.css";
 // import dynamic from "next/dynamic";
 
-// Lazy load less critical components
 // might comment this out for now? the JoinNow component isn't used at all, and this import is stopping deployment
 // const JoinNow = dynamic(() => import('./JoinNow'), {
 //   loading: () => <p>Loading...</p>,
@@ -51,9 +50,8 @@ const features = [
   },
 ];
 
-// Array of image paths
 const hoverImages = [
-  "/trevor.png", // Replace with your actual image paths
+  "/trevor.png",
   "/trevortwo.png",
   "/trevorthree.png",
   "/trevorfour.png",
@@ -69,19 +67,16 @@ const Features = () => {
   const featureCardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const [scrollY, setScrollY] = useState(0);
 
-  // Function to get random rotation between -1.2 and 1.2 degrees
   const getRandomRotation = () => {
     const rotation = Math.random() * 2.4 - 1.2;
     return `rotate(${rotation}deg)`;
   };
 
-  // Function to get random image
   const getRandomImage = () => {
     const randomIndex = Math.floor(Math.random() * hoverImages.length);
     return hoverImages[randomIndex];
   };
 
-  // Initialize cards with random background images when component mounts
   useEffect(() => {
     featureCardsRef.current.forEach((card) => {
       if (card) {
@@ -91,7 +86,6 @@ const Features = () => {
     });
   }, []);
 
-  // Add scroll event listener for parallax effect
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -104,7 +98,6 @@ const Features = () => {
     };
   }, []);
 
-  // Calculate title transform based on scroll position (adjusted for reduced empty space)
   const titleTransform = `translateY(${-30 + scrollY * 0.2}px)`;
 
   return (
@@ -130,7 +123,7 @@ const Features = () => {
                 }}
                 onMouseLeave={(e) => {
                   const card = e.currentTarget;
-                  // Generate a new random image on mouse leave instead of removing the background
+
                   const randomImage = getRandomImage();
                   card.style.backgroundImage = `url(${randomImage})`;
                   card.style.transform = "scale(1) rotate(0deg)";

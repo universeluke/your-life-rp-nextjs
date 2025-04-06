@@ -1,4 +1,3 @@
-// app/api/devlogroute/route.ts
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -7,7 +6,6 @@ export async function GET(request: NextRequest) {
   const repo = searchParams.get("repo");
   const count = searchParams.get("count") || 5;
 
-  // Get your GitHub token from environment variables
   const token = process.env.GITHUB_TOKEN;
 
   if (!owner || !repo) {
@@ -17,7 +15,6 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // For private repositories, a token is required
   if (!token) {
     return NextResponse.json(
       { error: "GitHub token is required for private repositories" },
@@ -45,7 +42,6 @@ export async function GET(request: NextRequest) {
 
     const data = await response.json();
 
-    // Format the data to include only what we need
     interface CommitItem {
       sha: string;
       commit: {
@@ -64,7 +60,7 @@ export async function GET(request: NextRequest) {
 
     const commits = data.map((item: CommitItem) => ({
       sha: item.sha,
-      message: item.commit.message.split("\n")[0], // Just get the first line of the commit message
+      message: item.commit.message.split("\n")[0],
       date: item.commit.author.date,
       url: item.html_url,
       author: {

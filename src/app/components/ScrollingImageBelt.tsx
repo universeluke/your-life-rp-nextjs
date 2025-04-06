@@ -16,7 +16,6 @@ const ScrollingImageBelt: React.FC = () => {
   const [beltWidth, setBeltWidth] = useState(0);
   const [isAnimating, setIsAnimating] = useState(true);
 
-  // Your custom images array - replace with your actual image paths
   const images: ImageItem[] = [
     {
       id: 1,
@@ -80,7 +79,6 @@ const ScrollingImageBelt: React.FC = () => {
     },
   ];
 
-  // Duplicate the images to ensure we have enough for continuous scrolling
   const extendedImages = [...images, ...images, ...images];
 
   const startAnimation = () => {
@@ -101,12 +99,12 @@ const ScrollingImageBelt: React.FC = () => {
     const belt = beltRef.current;
     if (!belt || !isAnimating || beltWidth === 0) return;
 
-    let position = parseFloat(belt.style.transform.replace(/[^\d.-]/g, '')) || 0;
-    const speed = 0.5; // Pixels per frame (adjust for speed)
+    let position =
+      parseFloat(belt.style.transform.replace(/[^\d.-]/g, "")) || 0;
+    const speed = 0.5;
 
     position -= speed;
 
-    // When we've scrolled one full set of images, reset to beginning
     if (position <= -beltWidth) {
       position += beltWidth;
     }
@@ -119,14 +117,13 @@ const ScrollingImageBelt: React.FC = () => {
     const belt = beltRef.current;
     if (!belt || belt.children.length === 0) return;
 
-    // Calculate the total width of items in the belt
     let totalWidth = 0;
     const items = Array.from(belt.children) as HTMLElement[];
 
     const calculateWidths = () => {
       totalWidth = 0;
       items.forEach((item) => {
-        totalWidth += item.offsetWidth + 16; // 16px is the gap (1rem)
+        totalWidth += item.offsetWidth + 16;
       });
       setBeltWidth(totalWidth / 3);
     };
@@ -134,10 +131,9 @@ const ScrollingImageBelt: React.FC = () => {
     calculateWidths();
     window.addEventListener("resize", calculateWidths);
 
-    // Set up intersection observer
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             startAnimation();
           } else {
@@ -150,7 +146,6 @@ const ScrollingImageBelt: React.FC = () => {
 
     observer.observe(belt);
 
-    // Start initial animation
     startAnimation();
 
     return () => {
